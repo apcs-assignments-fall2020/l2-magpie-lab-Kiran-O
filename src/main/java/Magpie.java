@@ -83,6 +83,9 @@ public class Magpie
         {
             response = "Tell me more about your family.";
         }
+         else if (statement.trim().length() < 1){
+            response = "Speak up I can't hear you";
+        }
         else
         {
             response = getRandomResponse();
@@ -139,7 +142,36 @@ public class Magpie
     // The method returns the index of the first character in word
     // if it is found, and returns -1 otherwise. 
     public int findWord(String str, String word) {
-        return -1;
+        String qwe = str.toLowerCase();
+        String ynk = word.toLowerCase();
+        char goba;
+        char goooba;
+        if (qwe.indexOf(ynk) == -1){
+            return -1;
+        }
+        else {
+            if (qwe.indexOf(ynk) > 0){
+                goba = qwe.charAt(qwe.indexOf(ynk) - 1);
+            }
+            else {
+                goba = ' ';
+            }
+
+            if (qwe.indexOf(ynk) + ynk.length() >= qwe.length()){
+                goooba = ' ';
+            }
+            else {
+                goooba = str.charAt(qwe.indexOf(ynk) + ynk.length());
+            }
+            if (goba != ' ' && goooba != ' '){
+                return -1;
+            }
+            else {
+                return (qwe.indexOf(ynk));
+            }
+
+        }
+        
     }
 
     
