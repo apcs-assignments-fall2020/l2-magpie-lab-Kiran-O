@@ -142,38 +142,12 @@ public class Magpie
     // The method returns the index of the first character in word
     // if it is found, and returns -1 otherwise. 
     public int findWord(String str, String word) {
-        String qwe = str.toLowerCase();
-        String ynk = word.toLowerCase();
-        char goba;
-        char goooba;
-        if (qwe.indexOf(ynk) == -1){
-            return -1;
-        }
-        else {
-            if (qwe.indexOf(ynk) > 0){
-                goba = qwe.charAt(qwe.indexOf(ynk) - 1);
-            }
-            else {
-                goba = ' ';
-            }
+        str = " " + str.toLowerCase() + " ";
+        word = " " + word.toLowerCase() + " ";
 
-            if (qwe.indexOf(ynk) + ynk.length() >= qwe.length()){
-                goooba = ' ';
-            }
-            else {
-                goooba = str.charAt(qwe.indexOf(ynk) + ynk.length());
-            }
-            if (goba != ' ' && goooba != ' '){
-                return -1;
-            }
-            else {
-                return (qwe.indexOf(ynk));
-            }
-
+        return str.indexOf(word);
         }
         
-    }
-
     
     // We will work on the following methods later!
 
@@ -185,8 +159,15 @@ public class Magpie
      */
     public String transformIWantStatement(String statement)
     {
-        //your code here
-        return "";
+        statement = statement.trim();
+        String qwe = statement.substring(statement.length() - 1);
+        if (qwe.equals(".")) {
+            statement = statement.substring(statement.length() - 1);
+
+        }
+        int ynk = findWord(statement, "I want");
+        String jkl = statement.substring(ynk + 7);
+        return "Would you really be happy if you had " + jkl + "?";
     }
 
     /**
