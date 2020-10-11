@@ -178,8 +178,16 @@ public class Magpie
      */
     public String transformIYouStatement(String statement)
     {
-        //your code here
-        return "";
+        statement = statement.trim();
+        String qwe = statement.substring(statement.length() - 1);
+        if (qwe.equals(".")) {
+            statement = statement.substring(statement.length() - 1);
+
+        }
+        int ynk = findWord(statement, "I");
+        int tou = findWord(statement, "You");
+        String jkl = statement.substring(ynk + 1, tou).trim(); 
+        return ("Why do you " + jkl + " me?");
     }
 
     /**
@@ -190,8 +198,15 @@ public class Magpie
      */
     public String transformIWantToStatement(String statement)
     {
-        // your code here
-        return "";
+        statement = statement.trim();
+        String qwe = statement.substring(statement.length() - 1);
+        if (qwe.equals(".")) {
+            statement = statement.substring(statement.length() - 1);
+        
+         }
+        int ynk = findWord(statement, "I want to");
+        String jkl = statement.substring(ynk + 9).trim();
+        return ("What would it mean to " + jkl + "?");
     }
 
 
@@ -205,7 +220,15 @@ public class Magpie
      */
     public String transformYouMeStatement(String statement)
     {
-        // your code here
-        return "";
+        statement = statement.trim();
+        String qwe = statement.substring(statement.length() - 1);
+        if (qwe.equals(".")) {
+            statement = statement.substring(statement.length() - 1);
+        
+        }
+        int ynk = findWord(statement, "You");
+        int tou = findWord(statement, "Me");
+        String jkl = statement.substring(ynk + 3, tou).trim();
+        return ("What makes you think that I " + jkl + " you?");
     }
 }
